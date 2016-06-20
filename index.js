@@ -272,8 +272,8 @@ module.exports = function(bundle, opts) {
         } else {
           isNew = true;
           thunk = function() {
-            var header = '_hmr['+JSON.stringify(bundleKey)+
-              '].initModule('+JSON.stringify(fileKey(row.file))+', module);\n(function(){\n';
+            var header = 'if (typeof _hmr !== "undefined") {_hmr['+JSON.stringify(bundleKey)+
+              '].initModule('+JSON.stringify(fileKey(row.file))+', module);}\n(function(){\n';
             var footer = '\n}).apply(this, arguments);\n';
 
             var inputMapCV = convert.fromSource(row.source);
